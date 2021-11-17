@@ -2,7 +2,7 @@ name: "blog"
 title: "Logan Piepmeier"
 description: |
   Logan Piepmeier
-output_dir: "_site"
+output_dir: "docs"
 navbar:
   right:
     - text: "Home"
