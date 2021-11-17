@@ -1,0 +1,18 @@
+---
+title: "Initial Commit"
+description: |
+  Hello World.
+author:
+  - name: Logan Piepmeier
+date: 2021-11-17
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Here we go! I'm Logan, a research consultant at the University of Washington. I'm planning to use this site to share tools (mostly in R) that interest me and to talk about working with data more generally. 

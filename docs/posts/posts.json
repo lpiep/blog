@@ -1,19 +1,19 @@
 [
   {
-    "path": "posts/welcome/",
-    "title": "Welcome to Logan Piepmeier",
-    "description": "Welcome to our new blog, Logan Piepmeier. We hope you enjoy \nreading what we have to say!",
+    "path": "posts/2021-11-17-initial-commit/",
+    "title": "Initial Commit",
+    "description": "Hello World.",
     "author": [
       {
-        "name": "Nora Jones",
-        "url": "https://example.com/norajones"
+        "name": "Logan Piepmeier",
+        "url": {}
       }
     ],
     "date": "2021-11-17",
     "categories": [],
-    "contents": "\n\n\n\n",
+    "contents": "\nHere we go! I’m Logan, a research consultant at the University of Washington. I’m planning to use this site to share tools (mostly in R) that interest me and to talk about working with data more generally.\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-11-17T07:25:09-05:00",
+    "last_modified": "2021-11-17T08:06:38-05:00",
     "input_file": {}
   }
 ]

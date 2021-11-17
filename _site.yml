@@ -1,12 +1,16 @@
 name: "blog"
 title: "Logan Piepmeier"
 description: |
-  Logan Piepmeier
+  Logan Piepmeier's Blog
 output_dir: "docs"
 navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "About"
-      href: about.html
-output: distill::distill_article
+    - text: "CV"
+      href: https://lpiep.github.io/
+output: 
+  distill::distill_article:
+    css: styles.css
+
+
