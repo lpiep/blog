@@ -13,6 +13,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
 ```
 
 ## What is a pipe in R?
@@ -21,13 +22,13 @@ The `%>%` pipe has become pretty ubiquitous in R, especially with the rise of th
 
 For example, we may want to use dplyr to find the mean `Sepal.Width` to `Sepal.Length` ratio for each species in the `iris` data set. We could do this in a single command with:
 
-```{r results=FALSE, message=FALSE}
+```{r, echo = TRUE, message=FALSE}
 summarize(group_by(mutate(iris, sepal_ratio = Sepal.Width / Sepal.Length), Species), mean_sepal_ratio = mean(sepal_ratio))
 ```
 
 Even if you know dplyr well, it likely took a few passes to understand that line. Pipes (IMHO) make this much more readable.
 
-```{r}
+```{r, echo = TRUE}
 iris %>%
   mutate(sepal_ratio = Sepal.Width / Sepal.Length) %>%
   group_by(Species) %>%
@@ -44,33 +45,33 @@ This pattern in R is borrowed from other, more object-oriented, programming lang
 
 Staying with that familiar `%in%` for a moment, you can actually see that it's secretly a normal old function under the hood. Here is the typical use of `%in%`:
 
-```{r}
+```{r, echo = TRUE}
 c(1,2,3) %in% c(2,3,4)
 ```
 
 But we can also use it this way:
 
-```{r}
+```{r echo = TRUE}
 `%in%`(c(1,2,3), c(2,3,4))
 ```
 
 So `%in%` can actually be used with the function syntax we're used to `function(x,y)`. Play around with R and you'll find many very basic operations work this way when wrapped in backticks:
 
-```{r}
+```{r, echo = TRUE}
 `+`(1,1) # Addition
 ```
 
-```{r}
+```{r, echo = TRUE}
 `%%`(5, 3) # Modulo
 ```
 
-```{r}
+```{r, echo = TRUE}
 `^`(2, 3) # Exponentiation 
 ```
 
 You can even define your own infix function by defining a two-argument function and wrapping its name in "% %". Just use the backticks when defining it.
 
-```{r}
+```{r, echo = TRUE}
 `%my_very_own_plus_sign%` <- function(x,y){ x + y }
 2 %my_very_own_plus_sign% 2
 ```
@@ -79,7 +80,7 @@ You can even define your own infix function by defining a two-argument function 
 
 As you've surely guessed by now, you can also call the pipe with this syntax (although its pretty clunky to do so).
 
-```{r}
+```{r, echo = TRUE}
 `%>%`('this is', paste('my example'))
 ```
 
@@ -91,7 +92,7 @@ Ok, so the `%>%` pipe is an infix function. But I still don't know how it actual
 
 Well, at a basic level, we can just ask R what it is.
 
-```{r}
+```{r, echo = TRUE}
 `%>%`
 ```
 
@@ -110,5 +111,3 @@ Let's go line-by-line.
 -   `.External2(magrittr_pipe)`. I think we have reached the crux of this problem. There does not appear to be a variable called `magrittr_pipe` in this function, and `??magrittr_pipe` doesn't have any results in R. Calling `help(.External2)` points to `.External` (thanks, R docs). `help(.External)` tells me that this function is "to pass R objects to compiled C/C++ code that has been loaded into R."
 
 Uh oh, C code. To a high-level coder like me, this is the part of the map that reads "here be dragons". I hope to be brave enough to explore this territory in a future post.
-
-\
