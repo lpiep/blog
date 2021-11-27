@@ -2110,8 +2110,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="d-article">
 <h2 id="what-is-a-pipe-in-r">What is a pipe in R?</h2>
-<p>The <code>%&gt;%</code> pipe has become pretty ubiquitous in R, especially with the rise of the <a href="https://www.tidyverse.org/">Tidyverse</a> packages. If you’re not familiar with it, just know that a pipe allows you to write your commands in a different (and sometimes more natural) order. Using dplyr’s <code>filter</code> function on the well-known <code>iris</code> data set: <code>filter(iris, species = "Setosa")</code> can be rewritten <code>iris %&gt;% filter(species = "Setosa")</code> using a pipe. This may not seem more natural at first, but its utility becomes more obvious when writing chains of several commands.</p>
-<p>For example, we may want to use dplyr to find the mean <code>Sepal.Width</code> to <code>Sepal.Length</code> ratio for each species in the <code>iris</code> data set. We could do this in a single command with:</p>
+<p>The <code>%&gt;%</code> pipe has become pretty ubiquitous in R, especially with the rise of the <a href="https://www.tidyverse.org/">Tidyverse</a> packages. If you’re not familiar with it, just know that a pipe allows you to write your commands in a different (and often more natural) order. Using dplyr’s <code>filter</code> function on the well-known <code>iris</code> data set: <code>filter(iris, species == "Setosa")</code> can be rewritten <code>iris %&gt;% filter(species == "Setosa")</code> using a pipe. This may not seem more natural at first, but its utility becomes more obvious when writing chains of several commands.</p>
+<p>For another dplyr / <code>iris</code> example, we may want to use dplyr to find the mean <code>Sepal.Width</code> to <code>Sepal.Length</code> ratio for each species in the <code>iris</code> data set. We could do this in a single command with:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span><span class='va'>iris</span>, sepal_ratio <span class='op'>=</span> <span class='va'>Sepal.Width</span> <span class='op'>/</span> <span class='va'>Sepal.Length</span><span class='op'>)</span>, <span class='va'>Species</span><span class='op'>)</span>, mean_sepal_ratio <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>sepal_ratio</span><span class='op'>)</span><span class='op'>)</span>
@@ -2160,7 +2160,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <pre><code>[1] FALSE  TRUE  TRUE</code></pre>
 </div>
-<p>So <code>%in%</code> can actually be used with the function syntax we’re used to <code>function(x,y)</code>. Play around with R and you’ll find many very basic operations work this way when wrapped in backticks:</p>
+<p>So <code>%in%</code> can actually be used with the <code>function(x,y)</code> syntax we’re used to. Play around with R and you’ll find many very basic operations work this way when wrapped in backticks:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>`+`</span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>1</span><span class='op'>)</span> <span class='co'># Addition</span>
@@ -2218,7 +2218,7 @@ document.addEventListener('DOMContentLoaded', function() {
     lazy &lt;- TRUE
     .External2(magrittr_pipe)
 }
-&lt;bytecode: 0x7f85cff32d70&gt;
+&lt;bytecode: 0x7f8b1fe7cf70&gt;
 &lt;environment: namespace:magrittr&gt;</code></pre>
 </div>
 <p>Let’s go line-by-line.</p>
